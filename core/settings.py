@@ -8,7 +8,9 @@ SECRET_KEY = config('SECRET_KEY', default='SECRET_KEY')
 
 DEBUG = config('DEBUG', default=True, cast=bool)
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost,127.0.0.1').split(',')
+# ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost,127.0.0.1').split(',')
+ALLOWED_HOSTS = ['*']
+
 
 CORS_ALLOW_METHODS = [
     'GET',
@@ -34,9 +36,10 @@ INSTALLED_APPS = [
     'corsheaders',
     'djongo',  # Pour MongoDB (optionnel pour l'instant)
     # Apps locales
-    'apps.users',
-    'apps.clients',
-    'apps.fournisseurs',
+    'apps.users.apps.UsersConfig',
+    'apps.clients.apps.ClientsConfig',
+    'apps.fournisseurs.apps.FournisseursConfig',
+    'apps.products.apps.ProductsConfig',
 
 ]
 
